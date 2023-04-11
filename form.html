@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="form.css">
+    <title>Validate Survey Form</title>
+</head>
+
+<body>
+    <main>
+        <div class="container ">
+            <header class="header">
+                <h1 id="title"> Pizza Hut's Survey </h1>
+                <p id="description"> Thank you for The Visiting Our Pizza Store!!! </p>
+            </header>
+            <form id="survey-form" onsubmit="return handleSubmit()">
+                <!--Name-->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="formControl" placeholder="Enter your name" required>
+                </div>
+                <!--Age-->
+                <div class="form-group">
+                    <label for="Age">Age</label>
+                    <input type="number" name="Age" id="Age" class="formControl" placeholder="Enter your Age" required>
+                </div>
+                <!--Phone Number-->
+                <div class="form-group">
+                    <label for="Contact No:">Contact No:</label>
+                    <input type="number" name="Contact No:" id="Contact No:" class="formControl" required>
+                </div>
+                <!--Gender-->
+                <div class="form-group">
+                    <p id="quest">Enter Your Gender</p>
+                    <select name="role" required id="dropdown" class="formControl">
+                    <option value disabled selected>Select your Gender</option>
+                    <option value="student">Male</option>
+                    <option value="teacher">Female</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                    <p id="quest">Do You Like Our Pizza Hut's Pizza?</p>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Yes</label>
+                    <label for=""><input type="radio" name="source" value="No" class="inputRadio">No</label>
+                </div>
+
+
+                <div class="form-group">
+                    <p id="quest">How Frequently do you Visit?</p>
+                    <label for=""><input type="radio" name="source" value="Weekly" class="inputRadio"> Weekly</label>
+                    <label for=""><input type="radio" name="source" value="Monthly" class="inputRadio">Monthly</label>
+                    <label for=""><input type="radio" name="source" value="Occasionally" class="inputRadio"> Occasionally</label>
+                </div>
+
+                <div class="form-group">
+                    <p id="quest">Which Pizza do you usually purchase? </p>
+                    <label for=""><input type="checkbox" name="prefer" class="checkbox" value="margarita"> Margherita</label>
+                    <label for=""><input type="checkbox" name="prefer" class="checkbox" value="barbeque"> Barbeque</label>
+                    <label for=""><input type="checkbox" name="prefer" class="checkbox" value="pepperoni"> Pepperoni</label>
+                    <label for=""><input type="checkbox" name="prefer" class="checkbox" value="paneer"> Paneer Mexican</label>
+                    <label for=""><input type="checkbox" name="prefer" class="checkbox" value="other"> Chili Pepper</label>
+                </div>
+
+                <div class="form-group">
+                    <p id="quest"> How Would you Describe your eating experience at Pizza Hut?</p>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Excellent </label>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Very Good </label>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Good </label>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Average </label>
+                    <label for=""><input type="radio" name="source" value="Yes" class="inputRadio"> Bad </label>
+                </div>
+
+                <div class="form-group">
+                    <p id="quest">Give us your feedback</p>
+                    <textarea name="feedback" cols="30" rows="5" id="feedback" class="textarea" placeholder="Feedback here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="btn">Submit</button>
+                </div>
+            </form>
+    </main>
+    </div>
+
+
+    <script>
+        function handleSubmit() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("number").value;
+            var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+            var regName = /\d+$/g;
+
+            if (name == "" || regName.test(name)) {
+                window.alert("Please enter your name properly.");
+                name.focus();
+                return false;
+
+                if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
